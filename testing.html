@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FeatureFence — Testing Instructions</title>
+  <meta name="description" content="One-page testing instructions for the FeatureFence Playground demo." />
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f152b;
+      --accent:#6ee7ff;
+      --accent-2:#a78bfa;
+      --text:#eaf0ff;
+      --muted:#a7b0cf;
+      --card:#111833;
+      --ok:#22c55e;
+      --warn:#f59e0b;
+      --err:#ef4444;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    html,body{height:100%}
+    body{margin:0;background:radial-gradient(1200px 600px at 10% -10%, #1a2454, transparent),
+                     radial-gradient(1000px 600px at 110% 10%, #4a1d6b40, transparent), var(--bg);
+      color:var(--text);font:16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif}
+    .wrap{max-width:1000px;margin:auto;padding:28px}
+    .brand{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+    .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 6px 20px #6ee7ff33, inset 0 0 30px #ffffff10}
+    .brand h1{font-size:22px;margin:0;font-weight:700;letter-spacing:.2px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow);
+      padding:20px;margin:14px 0}
+    .card h2{margin:.1rem 0 0.6rem;font-size:18px}
+    .grid{display:grid;gap:14px}
+    @media (min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+    code, .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace}
+    .kbd{display:inline-block;padding:.15rem .35rem;border:1px solid rgba(255,255,255,.15);border-bottom-width:2px;border-radius:8px;background:#0c1230;color:#d9e4ff}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(255,255,255,.12);background:#0c1332;padding:6px 10px;border-radius:999px;font-size:13px}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      color:#061021;border:none;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .label{font-weight:600;margin-right:6px}
+    .copy{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.12);background:#0b1230;padding:8px 10px;border-radius:12px}
+    .copy input{width:420px;max-width:60vw;background:transparent;border:none;outline:none;color:var(--text)}
+    .copy button{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border-radius:10px;background:#0e1a45}
+    .badge{padding:.2rem .5rem;border-radius:999px;font-size:12px;font-weight:700}
+    .ok{background:#0b2a15;border:1px solid #164f28;color:#7ef3ae}
+    .warn{background:#2a200b;border:1px solid #4f3e16;color:#ffd27e}
+    .err{background:#2a0b0b;border:1px solid #4f1616;color:#ff9b9b}
+    .foot{opacity:.75;font-size:13px;margin-top:20px}
+    .hr{height:1px;background:linear-gradient(90deg,transparent, rgba(255,255,255,.18), transparent);margin:18px 0}
+    /* Print-friendly */
+    @media print{
+      body{background:#fff;color:#000}
+      .card{box-shadow:none;border-color:#ccc}
+      a{color:#06c;text-decoration:underline}
+      .copy input{max-width:100%}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <h1>FeatureFence — Testing Instructions</h1>
+      <span class="pill" title="Project availability">Available through Judging Period</span>
+    </div>
+
+    <div class="card">
+      <h2>1) Project Access</h2>
+      <div class="grid">
+        <div>
+          <div class="row">
+            <span class="label">Website / Demo URL:</span>
+            <span><a id="demoLink" href="https://baseline.admnwizard.com" target="_blank" rel="noopener">https://baseline.admnwizard.com</a></span>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <span class="label">API Base URL:</span>
+            <span class="mono">https://baseline.admnwizard.com/api</span>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <span class="label">Source Repository:</span>
+            <span><a href="https://github.com/sureshwizard/featurefence.git" target="_blank" rel="noopener">https://github.com/sureshwizard/featurefence.git</a></span>
+          </div>
+          <div class="row">
+            <span class="label">Github help-Website</span>
+            <span><a href="https://sureshwizard.github.io/featurefence" target="_blank" rel="noopener">https://sureshwizard.github.io/featurefence</a></span>
+          </div>
+          <div class="muted" style="margin-top:6px">(Optional) Include your public repo for reviewers.</div>
+        </div>
+      </div>
+      <div class="hr"></div>
+      <div class="row">
+        <div class="copy" aria-label="Copy demo link">
+          <input id="copyUrl" value="https://baseline.admnwizard.com" readonly />
+          <button id="copyBtn" class="mono" title="Copy to clipboard">Copy</button>
+        </div>
+        <a class="cta" href="https://baseline.admnwizard.com" target="_blank" rel="noopener">Open Live Demo</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>2) Login Credentials (if required)</h2>
+      <div class="grid">
+        <div class="muted">demo is public,  <em>“No login required — publicly accessible.”</em></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>3) Supported Platforms</h2>
+      <ul>
+        <li>Web: modern browsers (Chrome, Edge, Firefox, Safari)</li>
+        <li>Mobile: responsive in-browser experience</li>
+        <li>Desktop: browser-based</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>4) Access & Availability</h2>
+      <p>The Project is provided <strong>free of charge</strong> and <strong>without restrictions</strong> for testing, evaluation, and use by the Sponsor, Administrator, and Judges until the end of the <strong>Judging Period</strong>.</p>
+      <p class="muted">Note: Judges are not required to run the demo and may evaluate based on the description, screenshots, and video in the submission.</p>
+    </div>
+
+    <div class="card">
+      <h2>5) Testing Pointers</h2>
+      <ol>
+        <li>Open the demo URL and run a sample lint check using the playground UI.</li>
+        <li>Or POST to the API directly:<br/>
+          <code>POST https://baseline.admnwizard.com/lint</code>
+        </li>
+        <li>Example body: <code>{"code":"const x=1;"}</code></li>
+      </ol>
+      <details>
+        <summary class="mono">Show cURL examples</summary>
+        <pre><code>curl -sS -X POST "https://baseline.admnwizard.com/lint" \
+  -H "Content-Type: application/json" \
+  -d '{"code":"const x=1;"}'
+</code></pre>
+      </details>
+    </div>
+
+    <div class="card">
+      <h2>6) Hardware Requirements</h2>
+      <p>Not required — runs entirely in a web browser.</p>
+      <p class="muted">If proprietary / third-party hardware is involved, Entrant will provide physical access to the hardware upon request from Sponsor or Administrator.</p>
+    </div>
+
+    <div class="foot muted">
+      <div>Contact: <span class="mono">sureshwizard@yahoo.com</span></div>
+      <div>Host: <span class="mono">baseline.admnwizard.com</span> • Environment: <span class="mono">production</span></div>
+    </div>
+  </div>
+
+  <script>
+    const copyBtn = document.getElementById('copyBtn');
+    const copyUrl = document.getElementById('copyUrl');
+    copyBtn?.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(copyUrl.value);
+        const old = copyBtn.textContent;
+        copyBtn.textContent = 'Copied!';
+        setTimeout(()=> copyBtn.textContent = old, 1400);
+      } catch(e){
+        alert('Copy failed — select and copy manually.');
+      }
+    });
+  </script>
+</body>
+</html>
+
